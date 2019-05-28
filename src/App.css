@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+
+#category-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100px;
+  border-style: solid;
+  padding: 5px;
+  margin: 5px;
+
+
+}
+
+.category-box{
+  border-style: solid;
+  width: 20%;
+  /* height: 100%; */
+  /* margin: 5px; */
+}

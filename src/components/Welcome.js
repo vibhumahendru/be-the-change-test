@@ -5,20 +5,18 @@ import {connect} from 'react-redux'
 
 class Welcome extends Component {
 
-  handleCounterPlus=()=>{
-    this.props.counterPlus()
+  handleSelectCategory=(category)=>{
+    this.props.selectCategory(category)
   }
 
   render() {
+    console.log(this.props.selectedCategory);
     return (
       <div>
-        <h1>{this.props.counter}</h1>
-        <div>
-          Welcome Component
-          <button onClick={this.handleCounterPlus}>Welcome Component</button>
-        </div>
-        <div>
-        <TestComponent/>
+        <div id="category-container">
+          <div onClick={(event)=>this.handleSelectCategory("education")} className="category-box">ed</div>
+          <div onClick={(event)=>this.handleSelectCategory("environment")} className="category-box">env</div>
+          <div onClick={(event)=>this.handleSelectCategory("healthcare")} className="category-box">health</div>
         </div>
       </div>
     );
@@ -27,12 +25,13 @@ class Welcome extends Component {
 }
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    counter: state.counter,
+    selectedCategory: state.selectedCategory
   }
 }
 function mapDispatchToProps(dispatch) {
   return{
-    counterPlus: ()=> dispatch({type: 'COUNTER_PLUS', payload: "test"})
+    selectCategory: (category)=> dispatch({type: 'SELECT_CATEGORY', payload: category})
   }
 }
 
